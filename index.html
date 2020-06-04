@@ -9,13 +9,26 @@
     <link rel="stylesheet" href="style.css" />
 
 <body>
-    <header>
-        <h1>Password Generator</h1>
-    </header>
-    <h2>Generate a Secure Password</h2>
-    <textarea readonly id="pwd" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
-    <button id="generator" class="btn">Generate Password</button>
+    <div calss="container">
+        <header>
+            <h1>Password Generator</h1>
+        </header>
+        <div class="wrapper">
+            <div class="wrapper-header">
+                <h2>Generate a Secure Password</h2>
+            </div>
+            <div class="wrapper-body">
+                <textarea readonly id="pwd" placeholder="Your Secure Password"
+                    aria-label="Generated Password"></textarea>
+            </div>
+            <div class="wrapper-footer">
+                <button id="generator" class="btn">Generate Password</button>
+            </div>
+
+        </div>
+    </div>
     <script src="script.js"></script>
+
 </body>
 
 

@@ -17,37 +17,57 @@ function passwordMake() {
   var numCases = confirm("Do you want 'Numbers' in your password?");
   var characterCases = confirm("Do you want 'Special characters' in your password?");
 
-
+  // This array will concatenate each string from each array according to user's confirmation
   var concatArray = [];
+
+  // This array will have the password generated from concat array which will push each randomly chosen string from concat array to the end of the password array until it finishes looping through given number from the user
   var passwordArray = [];
 
+  // Conditions
   if (numCharacter > 7 && numCharacter < 129) {
 
     if (upperCases) {
       concatArray = concatArray.concat(upperCaseArr);
     }
     if (lowerCases) {
-      concatArray = concatArray.concat(upperCaseArr);
+      concatArray = concatArray.concat(lowerCaseArr);
     }
     if (numCases) {
-      concatArray = concatArray.concat(upperCaseArr);
+      concatArray = concatArray.concat(numArr);
     }
     if (characterCases) {
-      concatArray = concatArray.concat(upperCaseArr);
+      concatArray = concatArray.concat(characterArr);
     }
+    // Loop
+    for (var i = 0; i < numCharacter; i++) {
+      passwordArray.push(concatArray[Math.floor(Math.random() * concatArray.length)]);
+    }
+    // Return the value of password array which has combined all strings into 1 string
+    return passwordArray.join("");
 
-    for (var i = 0; i < numCharacter.length; i++);
-    passwordArray.push(concatArray[Math.floor(Math.random() * concatArray.length)]);
   }
-
-  return passwordArray.join("");
-
-}
 }
 
+// Display password in textarea
+function displayPassword() {
 
+  var password = passwordMake();
+  var passwordDisplay = document.getElementById("pwd");
 
+  passwordDisplay.value = password;
 
+}
+// Copy password to the clipboard
+function copy() {
+  var copyText = document.getElementById("btnCopy");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied to the clipboard: " + copyText.value);
+}
+
+// Add click function to the button
+btnMake.addEventListener("click", displayPassword);
+copyText.addEventListener("click", copy);
 
 
 

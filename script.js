@@ -57,18 +57,18 @@ function displayPassword() {
   passwordDisplay.value = password;
 
 }
+
 // Copy password to the clipboard
 function copy() {
-  var copyText = document.getElementById("btnCopy");
-  copyText.select();
-  document.execCommand("copy");
-  alert("Copied to the clipboard: " + copyText.value);
+document.getElementById("pwd").select();
+document.execCommand("Copy");
+alert("Password is copied to the clipboard!");
+valid = true;
 }
 
 // Add click function to the button
 btnMake.addEventListener("click", displayPassword);
-copyText.addEventListener("click", copy);
-
+btnCopy.addEventListener("click", copy);
 
 
 
